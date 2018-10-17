@@ -271,6 +271,8 @@
 		#nav li.current a
 		{
 			font-weight: 500;
+			border-bottom: 1px solid #F0A833;
+			padding-bottom: 2px;
 		}
 
 /*

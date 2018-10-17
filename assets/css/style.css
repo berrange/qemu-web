@@ -434,9 +434,26 @@
 		width: 66.667%;
 	}
 
+	body.secnotice #main
+	{
+		width: 50%;
+	}
+
 	#sidebar
 	{
 		width: 16.667%;
+	}
+	body.secnotice #sidebar
+	{
+		margin-top: 10em;
+		width: 30%;
+	}
+
+	body.secnotice p.altformat
+	{
+		font-size: smaller;
+		color: inherit;
+		text-align: right;
 	}
 
 /*********************************************************************************/

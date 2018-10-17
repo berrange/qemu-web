@@ -1,0 +1,54 @@
+<security-notice xmlns="http://qemu.org/xmlns/security-notice/1.0">
+  <id>XXXX-XXXX</id>
+
+  <summary></summary>
+
+  <description>
+<![CDATA[]]>
+  </description>
+
+  <impact>
+<![CDATA[]]>
+  </impact>
+
+  <workaround>
+<![CDATA[]]>
+  </workaround>
+
+  <credits>
+    <reporter>
+      <name></name>
+      <email></email>
+    </reporter>
+    <patcher>
+      <name></name>
+      <email></email>
+    </patcher>
+  </credits>
+
+  <lifecycle>
+    <reported></reported>
+    <published></published>
+    <fixed></fixed>
+  </lifecycle>
+
+  <reference>
+    <advisory type="CVE" id="XXXX-XXXX"/>
+  </reference>
+
+  <repository>
+    <branch>
+      <name>master</name>
+      <change state="vulnerable"></change>
+      <change state="fixed"></change>
+    </branch>
+    <branch>
+      <name></name>
+      <tag state="vulnerable"></tag>
+      <change state="vulnerable"></change>
+      <tag state="fixed"></tag>
+      <change state="fixed"></change>
+    </branch>
+  </repository>
+
+</security-notice>

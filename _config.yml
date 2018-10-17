@@ -37,3 +37,7 @@ gems:
 exclude:
   - Gemfile
   - Gemfile.lock
+  - Makefile
+  - secalert/README.md
+  - secalert/README-template.md
+  - secalert/template.xml

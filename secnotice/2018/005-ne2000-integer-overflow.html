@@ -1,0 +1,15 @@
+---
+title: 'QSN-2018-005: ne2000 integer overflow in buffer access'
+layout: secnotice
+permalink: /secnotice/2018/005
+---
+
+    <div xmlns="http://www.w3.org/1999/xhtml" id="main"><div class="container"><h2>ne2000 integer overflow in buffer access</h2><h3>Lifecycle</h3><table><tr><th>Reported on:</th><td>20180522</td></tr><tr><th>Published on:</th><td>20180926</td></tr><tr><th>Fixed on:</th><td></td></tr></table><h3>Credits</h3><table><tr><th>Reported by:</th><td><a href="mailto:daniel@twistlock.com">Daniel Shapira</a></td></tr><tr><th>Patched by:</th><td><a href="mailto:jasonwang@redhat.com">Jason Wang</a></td></tr></table><h3>See also</h3><ul><li><a href="https://nvd.nist.gov/vuln/detail/CVE-2018-10839">CVE-2018-10839</a></li></ul><h3>Description</h3><p>
+Qemu emulator built with the NE2000 NIC emulation support is vulnerable to an integer overflow, which could lead to buffer overflow issue. It could occur when receiving packets over the network.
+  </p><h3>Impact</h3><p>
+A user inside guest could use this flaw to crash the Qemu process resulting in DoS.
+  </p><h3>Mitigation</h3><p>
+Replace use of the NE2000 network adapter with an alternative model
+  </p><p class="altformat">
+      Alternative formats:
+      <a href="/secnotice/2018/005.xml">[xml]</a> <a href="/secnotice/2018/005.txt">[text]</a></p></div></div><div xmlns="http://www.w3.org/1999/xhtml" id="sidebar"><div class="container"><section><header><h2>Related commits</h2></header><table><tr><th>Branch</th><td><a href="http://git.qemu.org/?p=qemu.git;a=shortlog;h=refs/heads/master">master</a></td></tr><tr><th>Broken by:</th><td><a href="http://git.qemu.org/?p=qemu.git;a=commit;h="></a></td></tr><tr><th>Fixed by:</th><td><a href="http://git.qemu.org/?p=qemu.git;a=commit;h=0caf499e2f26ae305a16ae2c4e7a2f295ddf64d1">0caf499e2f26ae305a16ae2c4e7a2f295ddf64d1</a></td></tr><tr><th>Merged by:</th><td><a href="http://git.qemu.org/?p=qemu.git;a=commit;h="></a></td></tr></table></section></div></div>

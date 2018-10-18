@@ -1,0 +1,43 @@
+        QEMU Security Notice: QSN-2018-003
+        ==================================
+
+       Summary: Multiboot out of bounds loading kernel
+   Reported on: 20180221
+  Published on: 20180227
+      Fixed on: 20180328
+   Reported by:  <>
+    Patched by:  <>
+      See also: CVE-2018-7550
+
+Description
+-----------
+
+Quick Emulator(QEMU) built with the PC System Emulator with
+multiboot feature support is vulnerable to an OOB memory access
+issue. It could occur while loading a kernel image during a guest
+boot if multiboot head addresses mh_load_end_addr was greater than
+mh_bss_end_addr.
+
+Impact
+------
+
+A user/process could use this flaw to potentially achieve arbitrary
+code execution on a host.
+
+Mitigation
+----------
+
+Do not use the -kernel argument to QEMU for providing the boot
+kernel. Allow the guest firmware and bootloader (eg grub) to load
+the boot kernel from inside the confined guest execution environment
+
+Related commits
+----------------
+
+  git://git.qemu.org/qemu.git
+  https://git.qemu.org/?p=qemu.git
+
+      Branch: master
+   Broken by: 
+    Fixed by: 2a8fcd119eb7c6bb3837fc3669eb1b2dfb31daf8
+

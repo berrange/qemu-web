@@ -1,0 +1,13 @@
+<security-notice-list xmlns="http://qemu.org/xmlns/security-notice-list/1.0">
+  <security-notice name='/secnotice/2018/010-net-ignore-packets-large-size.xml'/>
+  <security-notice name='/secnotice/2018/005-ne2000-integer-overflow.xml'/>
+  <security-notice name='/secnotice/2018/011-ccid-integer-overflow.xml'/>
+  <security-notice name='/secnotice/2018/004-cirrus-oob-access-updating-vga.xml'/>
+  <security-notice name='/secnotice/2018/007-qga-integer-overflow-guest-file-read.xml'/>
+  <security-notice name='/secnotice/2018/006-slirp-buffer-overflow-fragmented-datastream.xml'/>
+  <security-notice name='/secnotice/2018/001-speculative-store-bypass.xml'/>
+  <security-notice name='/secnotice/2018/002-out-of-bounds-vga-draw-text.xml'/>
+  <security-notice name='/secnotice/2018/008-rtl8139-integer-overflow.xml'/>
+  <security-notice name='/secnotice/2018/003-multiboot-oob-access-loading-kernel.xml'/>
+  <security-notice name='/secnotice/2018/009-pcnet-integer-overflow.xml'/>
+</security-notice-list>

@@ -1,0 +1,40 @@
+        QEMU Security Notice: QSN-2018-004
+        ==================================
+
+       Summary: Cirrus out of bounds access updating VGA display
+   Reported on: 20180228
+  Published on: 20180308
+      Fixed on: 20180312
+   Reported by: Ross Lagerwall <ross.lagerwall@citrix.com>
+    Patched by: Gerd Hoffmann <kraxel@redhat.com>
+      See also: CVE-2018-7858
+
+Description
+-----------
+
+Quick emulator(QEMU) built with the Cirrus CLGD 54xx VGA Emulator
+support is vulnerable to an out-of-bounds access issue. It could
+occur while updating VGA display, after guest has adjusted the
+display dimensions.
+
+Impact
+------
+
+A privileged user inside guest could use this flaw to crash the Qemu
+process resulting in DoS.
+
+Mitigation
+----------
+
+Replace use of the cirrus video adapter with an alternative model
+
+Related commits
+----------------
+
+  git://git.qemu.org/qemu.git
+  https://git.qemu.org/?p=qemu.git
+
+      Branch: master
+   Broken by: 
+    Fixed by: 7cdc61becd095b64a786b2625f321624e7111f3d
+

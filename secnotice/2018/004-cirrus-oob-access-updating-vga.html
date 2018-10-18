@@ -1,0 +1,18 @@
+---
+title: 'QSN-2018-004: Cirrus out of bounds access updating VGA display'
+layout: secnotice
+permalink: /secnotice/2018/004
+---
+
+    <div xmlns="http://www.w3.org/1999/xhtml" id="main"><div class="container"><h2>Cirrus out of bounds access updating VGA display</h2><h3>Lifecycle</h3><table><tr><th>Reported on:</th><td>20180228</td></tr><tr><th>Published on:</th><td>20180308</td></tr><tr><th>Fixed on:</th><td>20180312</td></tr></table><h3>Credits</h3><table><tr><th>Reported by:</th><td><a href="mailto:ross.lagerwall@citrix.com">Ross Lagerwall</a></td></tr><tr><th>Patched by:</th><td><a href="mailto:kraxel@redhat.com">Gerd Hoffmann</a></td></tr></table><h3>See also</h3><ul><li><a href="https://nvd.nist.gov/vuln/detail/CVE-2018-7858">CVE-2018-7858</a></li></ul><h3>Description</h3><p>
+Quick emulator(QEMU) built with the Cirrus CLGD 54xx VGA Emulator support is
+vulnerable to an out-of-bounds access issue. It could occur while updating
+VGA display, after guest has adjusted the display dimensions.
+  </p><h3>Impact</h3><p>
+A privileged user inside guest could use this flaw to crash the Qemu process
+resulting in DoS.
+  </p><h3>Mitigation</h3><p>
+Replace use of the cirrus video adapter with an alternative model
+  </p><p class="altformat">
+      Alternative formats:
+      <a href="/secnotice/2018/004.xml">[xml]</a> <a href="/secnotice/2018/004.txt">[text]</a></p></div></div><div xmlns="http://www.w3.org/1999/xhtml" id="sidebar"><div class="container"><section><header><h2>Related commits</h2></header><table><tr><th>Branch</th><td><a href="http://git.qemu.org/?p=qemu.git;a=shortlog;h=refs/heads/master">master</a></td></tr><tr><th>Broken by:</th><td><a href="http://git.qemu.org/?p=qemu.git;a=commit;h="></a></td></tr><tr><th>Fixed by:</th><td><a href="http://git.qemu.org/?p=qemu.git;a=commit;h=7cdc61becd095b64a786b2625f321624e7111f3d">7cdc61becd095b64a786b2625f321624e7111f3d</a></td></tr><tr><th>Merged by:</th><td><a href="http://git.qemu.org/?p=qemu.git;a=commit;h=fb5fff15881ba7a002924b967eb211c002897983">fb5fff15881ba7a002924b967eb211c002897983</a></td></tr></table></section></div></div>

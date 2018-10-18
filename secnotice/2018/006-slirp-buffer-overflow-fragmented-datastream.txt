@@ -1,0 +1,42 @@
+        QEMU Security Notice: QSN-2018-006
+        ==================================
+
+       Summary: slirp buffer overflow assembling fragmented
+                datastream
+   Reported on: 20180427
+  Published on: 20180605
+      Fixed on: 20180608
+   Reported by: ZDI Disclosures <zdi-disclosures@trendmicro.com>
+    Patched by: Prasad J Pandit <pjp@fedoraproject.org>
+      See also: CVE-2018-11806
+
+Description
+-----------
+
+A heap buffer overflow issue was found in the way Slirp networking
+back-end in QEMU processes fragmented packets. It could occur while
+reassembling the fragmented datagrams of an incoming packet.
+
+Impact
+------
+
+A privileged user/process inside guest could use this flaw to crash
+the QEMU process resulting in DoS OR potentially leverage it to
+execute arbitrary code on the host with privileges of the QEMU
+process.
+
+Mitigation
+----------
+
+Replace use of the "user" network backend with an alternative choice
+
+Related commits
+----------------
+
+  git://git.qemu.org/qemu.git
+  https://git.qemu.org/?p=qemu.git
+
+      Branch: master
+   Broken by: 
+    Fixed by: 864036e251f54c99d31df124aad7f34f01f5344c
+

@@ -1,0 +1,19 @@
+---
+title: 'QSN-2018-007: qemu-guest-agent integer overflow reading guest file'
+layout: secnotice
+permalink: /secnotice/2018/007
+---
+
+    <div xmlns="http://www.w3.org/1999/xhtml" id="main"><div class="container"><h2>qemu-guest-agent integer overflow reading guest file</h2><h3>Lifecycle</h3><table><tr><th>Reported on:</th><td>20180622</td></tr><tr><th>Published on:</th><td>20180622</td></tr><tr><th>Fixed on:</th><td></td></tr></table><h3>Credits</h3><table><tr><th>Reported by:</th><td><a href="mailto:mohdfakhrizulkifli@gmail.com">Fakhri Zulkifli</a></td></tr><tr><th>Patched by:</th><td><a href="mailto:pjp@fedoraproject.org">Prasad J Pandit</a></td></tr></table><h3>See also</h3><ul><li><a href="https://nvd.nist.gov/vuln/detail/CVE-2018-12617">CVE-2018-12617</a></li></ul><h3>Description</h3><p>
+The QEMU Guest Agent in QEMU is vulnerable to an integer overflow in the 
+qmp_guest_file_read(). An attacker could exploit this by sending a crafted QMP 
+command (including guest-file-read with a large count value) to the agent via 
+the listening socket to trigger a g_malloc() call with a large memory chunk 
+resulting in a segmentation fault.
+  </p><h3>Impact</h3><p>
+A user could use this flaw to crash the QEMU guest agent process resulting in DoS.
+  </p><h3>Mitigation</h3><p>
+Disable the QEMU guest agent 
+  </p><p class="altformat">
+      Alternative formats:
+      <a href="/secnotice/2018/007.xml">[xml]</a> <a href="/secnotice/2018/007.txt">[text]</a></p></div></div><div xmlns="http://www.w3.org/1999/xhtml" id="sidebar"><div class="container"><section><header><h2>Related commits</h2></header><table><tr><th>Branch</th><td><a href="http://git.qemu.org/?p=qemu.git;a=shortlog;h=refs/heads/master">master</a></td></tr><tr><th>Broken by:</th><td><a href="http://git.qemu.org/?p=qemu.git;a=commit;h="></a></td></tr><tr><th>Fixed by:</th><td><a href="http://git.qemu.org/?p=qemu.git;a=commit;h=141b197408ab398c4f474ac1a728ab316e921f2b">141b197408ab398c4f474ac1a728ab316e921f2b</a></td></tr><tr><th>Merged by:</th><td><a href="http://git.qemu.org/?p=qemu.git;a=commit;h=8beb8cc64da2868acec270e4becb9fea8f9093dc">8beb8cc64da2868acec270e4becb9fea8f9093dc</a></td></tr></table></section></div></div>

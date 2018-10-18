@@ -1,0 +1,39 @@
+        QEMU Security Notice: QSN-2018-010
+        ==================================
+
+       Summary: Ignore network packet sizes larger than INT_MAX
+   Reported on: 20180521
+  Published on: 20180926
+      Fixed on: 
+   Reported by: Daniel Shapira <daniel@twistlock.com>
+    Patched by: Jason Wang <jasonwang@redhat.com>
+      See also: CVE-2018-17963
+
+Description
+-----------
+
+A potential integer overflow issue was found in the QEMU emulator.
+It could occur when a packet with large packet size is accepted and
+processed.
+
+Impact
+------
+
+A user inside guest could use this flaw to crash the Qemu process
+resulting in DoS.
+
+Mitigation
+----------
+
+None
+
+Related commits
+----------------
+
+  git://git.qemu.org/qemu.git
+  https://git.qemu.org/?p=qemu.git
+
+      Branch: master
+   Broken by: 
+    Fixed by: 36772a6341af7c0f100b8e55a1e779db5fe818da
+

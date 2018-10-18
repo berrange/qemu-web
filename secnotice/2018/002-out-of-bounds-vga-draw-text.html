@@ -1,0 +1,17 @@
+---
+title: 'QSN-2018-002: VGA out of bounds in vga_draw_text'
+layout: secnotice
+permalink: /secnotice/2018/002
+---
+
+    <div xmlns="http://www.w3.org/1999/xhtml" id="main"><div class="container"><h2>VGA out of bounds in vga_draw_text</h2><h3>Lifecycle</h3><table><tr><th>Reported on:</th><td>20171228</td></tr><tr><th>Published on:</th><td>20171225</td></tr><tr><th>Fixed on:</th><td>20180125</td></tr></table><h3>Credits</h3><table><tr><th>Reported by:</th><td><a href="mailto:jiangxin1@huawei.com">Jiang Xin</a></td></tr><tr><th>Patched by:</th><td><a href="mailto:linzhecheng@huawei.com">Lin ZheCheng</a></td></tr></table><h3>See also</h3><ul><li><a href="https://nvd.nist.gov/vuln/detail/CVE-2018-5683">CVE-2018-5683</a></li></ul><h3>Description</h3><p>
+Quick Emulator(QEMU) built with the VGA emulator support is vulnerable to an out-of-bounds access issue in vga_draw_text. It could occur while updating vga display area.
+  </p><h3>Impact</h3><p>
+A privileged user inside guest could use this flaw to crash the Qemu process
+resulting in DoS.
+  </p><h3>Mitigation</h3><p>
+Disable graphics adapters if the virtual machines can be operated
+via the serial console
+  </p><p class="altformat">
+      Alternative formats:
+      <a href="/secnotice/2018/002.xml">[xml]</a> <a href="/secnotice/2018/002.txt">[text]</a></p></div></div><div xmlns="http://www.w3.org/1999/xhtml" id="sidebar"><div class="container"><section><header><h2>Related commits</h2></header><table><tr><th>Branch</th><td><a href="http://git.qemu.org/?p=qemu.git;a=shortlog;h=refs/heads/master">master</a></td></tr><tr><th>Broken by:</th><td><a href="http://git.qemu.org/?p=qemu.git;a=commit;h="></a></td></tr><tr><th>Fixed by:</th><td><a href="http://git.qemu.org/?p=qemu.git;a=commit;h=191f59dc17396bb5a8da50f8c59b6e0a430711a4">191f59dc17396bb5a8da50f8c59b6e0a430711a4</a></td></tr><tr><th>Merged by:</th><td><a href="http://git.qemu.org/?p=qemu.git;a=commit;h=b3bbe959b5dc3bf07041946455cc8e8d562bfd1f">b3bbe959b5dc3bf07041946455cc8e8d562bfd1f</a></td></tr></table></section></div></div>

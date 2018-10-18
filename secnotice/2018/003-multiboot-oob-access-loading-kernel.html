@@ -1,0 +1,21 @@
+---
+title: 'QSN-2018-003: Multiboot out of bounds loading kernel'
+layout: secnotice
+permalink: /secnotice/2018/003
+---
+
+    <div xmlns="http://www.w3.org/1999/xhtml" id="main"><div class="container"><h2>Multiboot out of bounds loading kernel</h2><h3>Lifecycle</h3><table><tr><th>Reported on:</th><td>20180221</td></tr><tr><th>Published on:</th><td>20180227</td></tr><tr><th>Fixed on:</th><td>20180328</td></tr></table><h3>Credits</h3><table><tr><th>Reported by:</th><td><a href="mailto:"></a></td></tr><tr><th>Patched by:</th><td><a href="mailto:"></a></td></tr></table><h3>See also</h3><ul><li><a href="https://nvd.nist.gov/vuln/detail/CVE-2018-7550">CVE-2018-7550</a></li></ul><h3>Description</h3><p>
+Quick Emulator(QEMU) built with the PC System Emulator with multiboot feature
+support is vulnerable to an OOB memory access issue. It could occur while
+loading a kernel image during a guest boot if multiboot head addresses
+mh_load_end_addr was greater than mh_bss_end_addr.
+  </p><h3>Impact</h3><p>
+A user/process could use this flaw to potentially achieve arbitrary code
+execution on a host.
+  </p><h3>Mitigation</h3><p>
+Do not use the -kernel argument to QEMU for providing the boot kernel.
+Allow the guest firmware and bootloader (eg grub) to load the boot kernel from
+inside the confined guest execution environment
+  </p><p class="altformat">
+      Alternative formats:
+      <a href="/secnotice/2018/003.xml">[xml]</a> <a href="/secnotice/2018/003.txt">[text]</a></p></div></div><div xmlns="http://www.w3.org/1999/xhtml" id="sidebar"><div class="container"><section><header><h2>Related commits</h2></header><table><tr><th>Branch</th><td><a href="http://git.qemu.org/?p=qemu.git;a=shortlog;h=refs/heads/master">master</a></td></tr><tr><th>Broken by:</th><td><a href="http://git.qemu.org/?p=qemu.git;a=commit;h="></a></td></tr><tr><th>Fixed by:</th><td><a href="http://git.qemu.org/?p=qemu.git;a=commit;h=2a8fcd119eb7c6bb3837fc3669eb1b2dfb31daf8">2a8fcd119eb7c6bb3837fc3669eb1b2dfb31daf8</a></td></tr><tr><th>Merged by:</th><td><a href="http://git.qemu.org/?p=qemu.git;a=commit;h=854a4436dd313eaeb51c275d00526d60437915d2">854a4436dd313eaeb51c275d00526d60437915d2</a></td></tr></table></section></div></div>

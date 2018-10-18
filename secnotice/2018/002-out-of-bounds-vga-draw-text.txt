@@ -1,0 +1,40 @@
+        QEMU Security Notice: QSN-2018-002
+        ==================================
+
+       Summary: VGA out of bounds in vga_draw_text
+   Reported on: 20171228
+  Published on: 20171225
+      Fixed on: 20180125
+   Reported by: Jiang Xin <jiangxin1@huawei.com>
+    Patched by: Lin ZheCheng <linzhecheng@huawei.com>
+      See also: CVE-2018-5683
+
+Description
+-----------
+
+Quick Emulator(QEMU) built with the VGA emulator support is
+vulnerable to an out-of-bounds access issue in vga_draw_text. It
+could occur while updating vga display area.
+
+Impact
+------
+
+A privileged user inside guest could use this flaw to crash the Qemu
+process resulting in DoS.
+
+Mitigation
+----------
+
+Disable graphics adapters if the virtual machines can be operated
+via the serial console
+
+Related commits
+----------------
+
+  git://git.qemu.org/qemu.git
+  https://git.qemu.org/?p=qemu.git
+
+      Branch: master
+   Broken by: 
+    Fixed by: 191f59dc17396bb5a8da50f8c59b6e0a430711a4
+

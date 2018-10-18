@@ -1,0 +1,19 @@
+---
+title: 'QSN-2018-006: slirp buffer overflow assembling fragmented datastream'
+layout: secnotice
+permalink: /secnotice/2018/006
+---
+
+    <div xmlns="http://www.w3.org/1999/xhtml" id="main"><div class="container"><h2>slirp buffer overflow assembling fragmented datastream</h2><h3>Lifecycle</h3><table><tr><th>Reported on:</th><td>20180427</td></tr><tr><th>Published on:</th><td>20180605</td></tr><tr><th>Fixed on:</th><td>20180608</td></tr></table><h3>Credits</h3><table><tr><th>Reported by:</th><td><a href="mailto:zdi-disclosures@trendmicro.com">ZDI Disclosures</a></td></tr><tr><th>Patched by:</th><td><a href="mailto:pjp@fedoraproject.org">Prasad J Pandit</a></td></tr></table><h3>See also</h3><ul><li><a href="https://nvd.nist.gov/vuln/detail/CVE-2018-11806">CVE-2018-11806</a></li></ul><h3>Description</h3><p>
+A heap buffer overflow issue was found in the way Slirp networking back-end
+in QEMU processes fragmented packets. It could occur while reassembling the
+fragmented datagrams of an incoming packet.
+  </p><h3>Impact</h3><p>
+A privileged user/process inside guest could use this flaw to crash the QEMU
+process resulting in DoS OR potentially leverage it to execute arbitrary code
+on the host with privileges of the QEMU process.
+  </p><h3>Mitigation</h3><p>
+Replace use of the "user" network backend with an alternative choice
+  </p><p class="altformat">
+      Alternative formats:
+      <a href="/secnotice/2018/006.xml">[xml]</a> <a href="/secnotice/2018/006.txt">[text]</a></p></div></div><div xmlns="http://www.w3.org/1999/xhtml" id="sidebar"><div class="container"><section><header><h2>Related commits</h2></header><table><tr><th>Branch</th><td><a href="http://git.qemu.org/?p=qemu.git;a=shortlog;h=refs/heads/master">master</a></td></tr><tr><th>Broken by:</th><td><a href="http://git.qemu.org/?p=qemu.git;a=commit;h="></a></td></tr><tr><th>Fixed by:</th><td><a href="http://git.qemu.org/?p=qemu.git;a=commit;h=864036e251f54c99d31df124aad7f34f01f5344c">864036e251f54c99d31df124aad7f34f01f5344c</a></td></tr><tr><th>Merged by:</th><td><a href="http://git.qemu.org/?p=qemu.git;a=commit;h=bac5ba3dc5da706f52c149fa6c0bd1dc96899bec">bac5ba3dc5da706f52c149fa6c0bd1dc96899bec</a></td></tr></table></section></div></div>

@@ -1,0 +1,42 @@
+        QEMU Security Notice: QSN-2018-007
+        ==================================
+
+       Summary: qemu-guest-agent integer overflow reading guest
+                file
+   Reported on: 20180622
+  Published on: 20180622
+      Fixed on: 
+   Reported by: Fakhri Zulkifli <mohdfakhrizulkifli@gmail.com>
+    Patched by: Prasad J Pandit <pjp@fedoraproject.org>
+      See also: CVE-2018-12617
+
+Description
+-----------
+
+The QEMU Guest Agent in QEMU is vulnerable to an integer overflow in
+the qmp_guest_file_read(). An attacker could exploit this by sending
+a crafted QMP command (including guest-file-read with a large count
+value) to the agent via the listening socket to trigger a g_malloc()
+call with a large memory chunk resulting in a segmentation fault.
+
+Impact
+------
+
+A user could use this flaw to crash the QEMU guest agent process
+resulting in DoS.
+
+Mitigation
+----------
+
+Disable the QEMU guest agent
+
+Related commits
+----------------
+
+  git://git.qemu.org/qemu.git
+  https://git.qemu.org/?p=qemu.git
+
+      Branch: master
+   Broken by: 
+    Fixed by: 141b197408ab398c4f474ac1a728ab316e921f2b
+

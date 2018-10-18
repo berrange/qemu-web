@@ -1,0 +1,15 @@
+---
+title: 'QSN-2018-010: Ignore network packet sizes larger than INT_MAX'
+layout: secnotice
+permalink: /secnotice/2018/010
+---
+
+    <div xmlns="http://www.w3.org/1999/xhtml" id="main"><div class="container"><h2>Ignore network packet sizes larger than INT_MAX</h2><h3>Lifecycle</h3><table><tr><th>Reported on:</th><td>20180521</td></tr><tr><th>Published on:</th><td>20180926</td></tr><tr><th>Fixed on:</th><td></td></tr></table><h3>Credits</h3><table><tr><th>Reported by:</th><td><a href="mailto:daniel@twistlock.com">Daniel Shapira</a></td></tr><tr><th>Patched by:</th><td><a href="mailto:jasonwang@redhat.com">Jason Wang</a></td></tr></table><h3>See also</h3><ul><li><a href="https://nvd.nist.gov/vuln/detail/CVE-2018-17963">CVE-2018-17963</a></li></ul><h3>Description</h3><p>
+A potential integer overflow issue was found in the QEMU emulator. It could occur when a packet with large packet size is accepted and processed.
+  </p><h3>Impact</h3><p>
+A user inside guest could use this flaw to crash the Qemu process resulting in DoS.
+  </p><h3>Mitigation</h3><p>
+None
+  </p><p class="altformat">
+      Alternative formats:
+      <a href="/secnotice/2018/010.xml">[xml]</a> <a href="/secnotice/2018/010.txt">[text]</a></p></div></div><div xmlns="http://www.w3.org/1999/xhtml" id="sidebar"><div class="container"><section><header><h2>Related commits</h2></header><table><tr><th>Branch</th><td><a href="http://git.qemu.org/?p=qemu.git;a=shortlog;h=refs/heads/master">master</a></td></tr><tr><th>Broken by:</th><td><a href="http://git.qemu.org/?p=qemu.git;a=commit;h="></a></td></tr><tr><th>Fixed by:</th><td><a href="http://git.qemu.org/?p=qemu.git;a=commit;h=36772a6341af7c0f100b8e55a1e779db5fe818da">36772a6341af7c0f100b8e55a1e779db5fe818da</a></td></tr><tr><th>Merged by:</th><td><a href="http://git.qemu.org/?p=qemu.git;a=commit;h="></a></td></tr></table></section></div></div>

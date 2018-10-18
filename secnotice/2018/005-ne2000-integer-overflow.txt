@@ -1,0 +1,40 @@
+        QEMU Security Notice: QSN-2018-005
+        ==================================
+
+       Summary: ne2000 integer overflow in buffer access
+   Reported on: 20180522
+  Published on: 20180926
+      Fixed on: 
+   Reported by: Daniel Shapira <daniel@twistlock.com>
+    Patched by: Jason Wang <jasonwang@redhat.com>
+      See also: CVE-2018-10839
+
+Description
+-----------
+
+Qemu emulator built with the NE2000 NIC emulation support is
+vulnerable to an integer overflow, which could lead to buffer
+overflow issue. It could occur when receiving packets over the
+network.
+
+Impact
+------
+
+A user inside guest could use this flaw to crash the Qemu process
+resulting in DoS.
+
+Mitigation
+----------
+
+Replace use of the NE2000 network adapter with an alternative model
+
+Related commits
+----------------
+
+  git://git.qemu.org/qemu.git
+  https://git.qemu.org/?p=qemu.git
+
+      Branch: master
+   Broken by: 
+    Fixed by: 0caf499e2f26ae305a16ae2c4e7a2f295ddf64d1
+

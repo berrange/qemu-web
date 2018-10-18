@@ -1,0 +1,18 @@
+---
+title: 'QSN-2018-001: Speculative store bypass'
+layout: secnotice
+permalink: /secnotice/2018/001
+---
+
+    <div xmlns="http://www.w3.org/1999/xhtml" id="main"><div class="container"><h2>Speculative store bypass</h2><h3>Lifecycle</h3><table><tr><th>Reported on:</th><td>20180312</td></tr><tr><th>Published on:</th><td>20180521</td></tr><tr><th>Fixed on:</th><td></td></tr></table><h3>Credits</h3><table><tr><th>Reported by:</th><td><a href="mailto:">Ken Johnson (Microsoft Security Response Center)</a></td></tr><tr><th></th><td><a href="mailto:">Jann Horn (Google Project Zero)</a></td></tr><tr><th>Patched by:</th><td><a href="mailto:"></a></td></tr></table><h3>See also</h3><ul><li><a href="https://nvd.nist.gov/vuln/detail/CVE-2018-3639">CVE-2018-3639</a></li></ul><h3>Description</h3><p>
+An industry-wide issue was found in the way many modern microprocessor designs have implemented speculative execution of Load &amp; Store instructions (a commonly used performance optimization).
+
+It relies on the presence of a precisely-defined instruction sequence in the privileged code as well as the fact that memory read from address to which a recent memory write has occurred may see an older value and subsequently cause an update into the microprocessor's data cache even for speculatively executed instructions that never actually commit (retire).
+
+  </p><h3>Impact</h3><p>
+As a result, an unprivileged attacker could use this flaw to read privileged memory by conducting targeted cache side-channel attacks.
+  </p><h3>Mitigation</h3><p>
+None
+  </p><p class="altformat">
+      Alternative formats:
+      <a href="/secnotice/2018/001.xml">[xml]</a> <a href="/secnotice/2018/001.txt">[text]</a></p></div></div><div xmlns="http://www.w3.org/1999/xhtml" id="sidebar"><div class="container"><section><header><h2>Related commits</h2></header><table><tr><th>Branch</th><td><a href="http://git.qemu.org/?p=qemu.git;a=shortlog;h=refs/heads/master">master</a></td></tr><tr><th>Broken by:</th><td><a href="http://git.qemu.org/?p=qemu.git;a=commit;h="></a></td></tr><tr><th>Fixed by:</th><td><a href="http://git.qemu.org/?p=qemu.git;a=commit;h="></a></td></tr><tr><th>Merged by:</th><td><a href="http://git.qemu.org/?p=qemu.git;a=commit;h="></a></td></tr></table></section></div></div>

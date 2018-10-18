@@ -1,5 +1,5 @@
 <security-notice xmlns="http://qemu.org/xmlns/security-notice/1.0">
-  <id>XXXX-XXXX</id>
+  <id>XXXX-XXX</id>
 
   <summary></summary>
 
@@ -41,13 +41,9 @@
       <name>master</name>
       <change state="vulnerable"></change>
       <change state="fixed"></change>
-    </branch>
-    <branch>
-      <name></name>
+      <change state="merged"></change>
       <tag state="vulnerable"></tag>
-      <change state="vulnerable"></change>
       <tag state="fixed"></tag>
-      <change state="fixed"></change>
     </branch>
   </repository>
 

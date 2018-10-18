@@ -4,7 +4,7 @@ YEARS = $(wildcard 2???)
 INDEX_XML = index.xml $(YEARS:%=%/index.xml)
 INDEX_HTML = $(INDEX_XML:%.xml=%.html)
 
-NOTICE_XML = $(wildcard */???.xml)
+NOTICE_XML = $(wildcard */???-*.xml)
 NOTICE_TXT = $(NOTICE_XML:%.xml=%.txt)
 NOTICE_HTML = $(NOTICE_XML:%.xml=%.html)
 

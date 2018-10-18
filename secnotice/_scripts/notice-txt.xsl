@@ -95,7 +95,7 @@
     <xsl:apply-templates select="qsn:reference"/>
     <xsl:apply-templates select="qsn:description"/>
     <xsl:apply-templates select="qsn:impact"/>
-    <xsl:apply-templates select="qsn:workaround"/>
+    <xsl:apply-templates select="qsn:mitigation"/>
     <xsl:apply-templates select="qsn:repository"/>
   </xsl:template>
 
@@ -215,8 +215,8 @@
     <xsl:value-of select="$nl"/>
   </xsl:template>
 
-  <xsl:template match="qsn:workaround">
-    <xsl:text>Workaround</xsl:text>
+  <xsl:template match="qsn:mitigation">
+    <xsl:text>Mitigation</xsl:text>
     <xsl:value-of select="$nl"/>
     <xsl:text>----------</xsl:text>
     <xsl:value-of select="$nl"/>
@@ -232,7 +232,7 @@
 
 
   <xsl:template match="qsn:repository">
-    <xsl:text>Affected commits</xsl:text>
+    <xsl:text>Related commits</xsl:text>
     <xsl:value-of select="$nl"/>
     <xsl:text>----------------</xsl:text>
     <xsl:value-of select="$nl"/>

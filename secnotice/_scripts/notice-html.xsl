@@ -33,32 +33,46 @@
   </xsl:template>
 
   <xsl:template match="/qsn:security-notice">---
-title: QEMU Security Notice: QSN-<xsl:value-of select="qsn:id"/>
+title: 'QSN-<xsl:value-of select="qsn:id"/>: <xsl:value-of select="qsn:summary"/>'
+layout: secnotice
 permalink: <xsl:call-template name="selfhref">
   <xsl:with-param name="id" select="qsn:id"/>
 </xsl:call-template>
 ---
 
-    <h2>
-      <xsl:value-of select="qsn:summary"/>
-    </h2>
+    <div id="main">
+      <div class="container">
 
-    <xsl:apply-templates select="qsn:lifecycle"/>
-    <xsl:apply-templates select="qsn:credits"/>
+	<h2>
+	  <xsl:value-of select="qsn:summary"/>
+	</h2>
 
-    <xsl:apply-templates select="qsn:reference"/>
-    <xsl:apply-templates select="qsn:description"/>
-    <xsl:apply-templates select="qsn:impact"/>
-    <xsl:apply-templates select="qsn:workaround"/>
-    <xsl:apply-templates select="qsn:repository"/>
+	<xsl:apply-templates select="qsn:lifecycle"/>
+	<xsl:apply-templates select="qsn:credits"/>
 
-    <hr/>
+	<xsl:apply-templates select="qsn:reference"/>
+	<xsl:apply-templates select="qsn:description"/>
+	<xsl:apply-templates select="qsn:impact"/>
+	<xsl:apply-templates select="qsn:mitigation"/>
 
-    <xsl:call-template name="selflink"/>
+	<xsl:call-template name="selflink"/>
+      </div>
+    </div>
+
+    <div id="sidebar">
+      <div class="container">
+	<section>
+	  <header>
+	    <h2>Related commits</h2>
+	  </header>
+	  <xsl:apply-templates select="qsn:repository"/>
+	</section>
+      </div>
+    </div>
   </xsl:template>
 
   <xsl:template name="selflink">
-    <p class="alt">
+    <p class="altformat">
       Alternative formats:
       <a>
 	<xsl:attribute name="href">
@@ -133,9 +147,19 @@ permalink: <xsl:call-template name="selfhref">
   </xsl:template>
 
   <xsl:template match="qsn:advisory">
-    <xsl:value-of select="@type"/>
-    <xsl:text>-</xsl:text>
-    <xsl:value-of select="@id"/>
+    <xsl:choose>
+      <xsl:when test="@type='CVE'">
+	<a href="https://nvd.nist.gov/vuln/detail/CVE-{@id}">
+	  <xsl:text>CVE-</xsl:text>
+	  <xsl:value-of select="@id"/>
+	</a>
+      </xsl:when>
+      <xsl:otherwise>
+	<xsl:value-of select="@type"/>
+	<xsl:text>-</xsl:text>
+	<xsl:value-of select="@id"/>
+      </xsl:otherwise>
+    </xsl:choose>
   </xsl:template>
 
   <xsl:template match="qsn:bug">
@@ -167,8 +191,8 @@ permalink: <xsl:call-template name="selfhref">
     </p>
   </xsl:template>
 
-  <xsl:template match="qsn:workaround">
-    <h3>Workaround</h3>
+  <xsl:template match="qsn:mitigation">
+    <h3>Mitigation</h3>
     <p>
       <xsl:value-of select="."/>
     </p>
@@ -193,8 +217,6 @@ permalink: <xsl:call-template name="selfhref">
   </xsl:template>
 
   <xsl:template match="qsn:repository">
-    <h3>Related commits</h3>
-
     <xsl:for-each select="qsn:branch">
       <table>
 	<tr>
@@ -238,6 +260,16 @@ permalink: <xsl:call-template name="selfhref">
 	<xsl:for-each select="qsn:change[@state='fixed']">
 	  <tr>
 	    <th>Fixed by:</th>
+	    <td>
+	      <xsl:call-template name="gitchange">
+		<xsl:with-param name="change" select="."/>
+	      </xsl:call-template>
+	    </td>
+	  </tr>
+	</xsl:for-each>
+	<xsl:for-each select="qsn:change[@state='merged']">
+	  <tr>
+	    <th>Merged by:</th>
 	    <td>
 	      <xsl:call-template name="gitchange">
 		<xsl:with-param name="change" select="."/>

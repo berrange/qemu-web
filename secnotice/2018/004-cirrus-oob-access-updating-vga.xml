@@ -1,0 +1,51 @@
+<security-notice xmlns="http://qemu.org/xmlns/security-notice/1.0">
+  <id>2018-004</id>
+
+  <summary>Cirrus out of bounds access updating VGA display</summary>
+
+  <description>
+<![CDATA[Quick emulator(QEMU) built with the Cirrus CLGD 54xx VGA Emulator support is
+vulnerable to an out-of-bounds access issue. It could occur while updating
+VGA display, after guest has adjusted the display dimensions.]]>
+  </description>
+
+  <impact>
+<![CDATA[A privileged user inside guest could use this flaw to crash the Qemu process
+resulting in DoS.]]>
+  </impact>
+
+  <mitigation>
+<![CDATA[Replace use of the cirrus video adapter with an alternative model]]>
+  </mitigation>
+
+  <credits>
+    <reporter>
+      <name>Ross Lagerwall</name>
+      <email>ross.lagerwall@citrix.com</email>
+    </reporter>
+    <patcher>
+      <name>Gerd Hoffmann</name>
+      <email>kraxel@redhat.com</email>
+    </patcher>
+  </credits>
+
+  <lifecycle>
+    <reported>20180228</reported>
+    <published>20180308</published>
+    <fixed>20180312</fixed>
+  </lifecycle>
+
+  <reference>
+    <advisory type="CVE" id="2018-7858"/>
+  </reference>
+
+  <repository>
+    <branch>
+      <name>master</name>
+      <change state="vulnerable"></change>
+      <change state="fixed">7cdc61becd095b64a786b2625f321624e7111f3d</change>
+      <change state="merged">fb5fff15881ba7a002924b967eb211c002897983</change>
+    </branch>
+  </repository>
+
+</security-notice>

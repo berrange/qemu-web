@@ -1,0 +1,53 @@
+<security-notice xmlns="http://qemu.org/xmlns/security-notice/1.0">
+  <id>2018-001</id>
+
+  <summary>Speculative store bypass</summary>
+
+  <description>
+<![CDATA[An industry-wide issue was found in the way many modern microprocessor designs have implemented speculative execution of Load & Store instructions (a commonly used performance optimization).
+
+It relies on the presence of a precisely-defined instruction sequence in the privileged code as well as the fact that memory read from address to which a recent memory write has occurred may see an older value and subsequently cause an update into the microprocessor's data cache even for speculatively executed instructions that never actually commit (retire).
+]]>
+  </description>
+
+  <impact>
+<![CDATA[As a result, an unprivileged attacker could use this flaw to read privileged memory by conducting targeted cache side-channel attacks.]]>
+  </impact>
+
+  <mitigation>
+<![CDATA[None]]>
+  </mitigation>
+
+  <credits>
+    <reporter>
+      <name>Ken Johnson (Microsoft Security Response Center)</name>
+    </reporter>
+    <reporter>
+      <name>Jann Horn (Google Project Zero)</name>
+    </reporter>
+    <patcher>
+      <name></name>
+      <email></email>
+    </patcher>
+  </credits>
+
+  <lifecycle>
+    <reported>20180312</reported>
+    <published>20180521</published>
+    <fixed></fixed>
+  </lifecycle>
+
+  <reference>
+    <advisory type="CVE" id="2018-3639"/>
+  </reference>
+
+  <repository>
+    <branch>
+      <name>master</name>
+      <change state="vulnerable"></change>
+      <change state="fixed"></change>
+      <change state="merged"></change>
+    </branch>
+  </repository>
+
+</security-notice>

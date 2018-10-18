@@ -1,0 +1,50 @@
+<security-notice xmlns="http://qemu.org/xmlns/security-notice/1.0">
+  <id>2018-002</id>
+
+  <summary>VGA out of bounds in vga_draw_text</summary>
+
+  <description>
+<![CDATA[Quick Emulator(QEMU) built with the VGA emulator support is vulnerable to an out-of-bounds access issue in vga_draw_text. It could occur while updating vga display area.]]>
+  </description>
+
+  <impact>
+<![CDATA[A privileged user inside guest could use this flaw to crash the Qemu process
+resulting in DoS.]]>
+  </impact>
+
+  <mitigation>
+<![CDATA[Disable graphics adapters if the virtual machines can be operated
+via the serial console]]>
+  </mitigation>
+
+  <credits>
+    <reporter>
+      <name>Jiang Xin</name>
+      <email>jiangxin1@huawei.com</email>
+    </reporter>
+    <patcher>
+      <name>Lin ZheCheng</name>
+      <email>linzhecheng@huawei.com</email>
+    </patcher>
+  </credits>
+
+  <lifecycle>
+    <reported>20171228</reported>
+    <published>20171225</published>
+    <fixed>20180125</fixed>
+  </lifecycle>
+
+  <reference>
+    <advisory type="CVE" id="2018-5683"/>
+  </reference>
+
+  <repository>
+    <branch>
+      <name>master</name>
+      <change state="vulnerable"></change>
+      <change state="fixed">191f59dc17396bb5a8da50f8c59b6e0a430711a4</change>
+      <change state="merged">b3bbe959b5dc3bf07041946455cc8e8d562bfd1f</change>
+    </branch>
+  </repository>
+
+</security-notice>

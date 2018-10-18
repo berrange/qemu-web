@@ -1,0 +1,49 @@
+<security-notice xmlns="http://qemu.org/xmlns/security-notice/1.0">
+  <id>2018-011</id>
+
+  <summary>CCID integer overflow reading data</summary>
+
+  <description>
+<![CDATA[An integer overflow issue was found in the CCID Passthru card device emulation, while reading card data in ccid_card_vscard_read() function. The ccid_card_vscard_read() function accepts a signed integer 'size' argument, which is subsequently used as unsigned size_t value in memcpy(), copying large amounts of memory.
+]]>
+  </description>
+
+  <impact>
+<![CDATA[A user inside guest could use this flaw to crash the Qemu process resulting in DoS.]]>
+  </impact>
+
+  <mitigation>
+<![CDATA[Remove the CCID device emulation from virtual machines]]>
+  </mitigation>
+
+  <credits>
+    <reporter>
+      <name>Arash Tohidi</name>
+      <email>tohidi.arash@gmail.com</email>
+    </reporter>
+    <patcher>
+      <name>Philippe Mathieu-Daudé</name>
+      <email>philmd@redhat.com</email>
+    </patcher>
+  </credits>
+
+  <lifecycle>
+    <reported>20180726</reported>
+    <published>20181011</published>
+    <fixed></fixed>
+  </lifecycle>
+
+  <reference>
+    <advisory type="CVE" id="2018-18438"/>
+  </reference>
+
+  <repository>
+    <branch>
+      <name>master</name>
+      <change state="vulnerable"></change>
+      <change state="fixed"></change>
+      <change state="merged"></change>
+    </branch>
+  </repository>
+
+</security-notice>

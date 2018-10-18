@@ -1,0 +1,54 @@
+<security-notice xmlns="http://qemu.org/xmlns/security-notice/1.0">
+  <id>2018-003</id>
+
+  <summary>Multiboot out of bounds loading kernel</summary>
+
+  <description>
+<![CDATA[Quick Emulator(QEMU) built with the PC System Emulator with multiboot feature
+support is vulnerable to an OOB memory access issue. It could occur while
+loading a kernel image during a guest boot if multiboot head addresses
+mh_load_end_addr was greater than mh_bss_end_addr.]]>
+  </description>
+
+  <impact>
+<![CDATA[A user/process could use this flaw to potentially achieve arbitrary code
+execution on a host.]]>
+  </impact>
+
+  <mitigation>
+<![CDATA[Do not use the -kernel argument to QEMU for providing the boot kernel.
+Allow the guest firmware and bootloader (eg grub) to load the boot kernel from
+inside the confined guest execution environment]]>
+  </mitigation>
+
+  <credits>
+    <reporter>
+      <name></name>
+      <email></email>
+    </reporter>
+    <patcher>
+      <name></name>
+      <email></email>
+    </patcher>
+  </credits>
+
+  <lifecycle>
+    <reported>20180221</reported>
+    <published>20180227</published>
+    <fixed>20180328</fixed>
+  </lifecycle>
+
+  <reference>
+    <advisory type="CVE" id="2018-7550"/>
+  </reference>
+
+  <repository>
+    <branch>
+      <name>master</name>
+      <change state="vulnerable"></change>
+      <change state="fixed">2a8fcd119eb7c6bb3837fc3669eb1b2dfb31daf8</change>
+      <change state="merged">854a4436dd313eaeb51c275d00526d60437915d2</change>
+    </branch>
+  </repository>
+
+</security-notice>

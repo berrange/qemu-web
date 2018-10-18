@@ -1,0 +1,52 @@
+<security-notice xmlns="http://qemu.org/xmlns/security-notice/1.0">
+  <id>2018-007</id>
+
+  <summary>qemu-guest-agent integer overflow reading guest file</summary>
+
+  <description>
+<![CDATA[The QEMU Guest Agent in QEMU is vulnerable to an integer overflow in the 
+qmp_guest_file_read(). An attacker could exploit this by sending a crafted QMP 
+command (including guest-file-read with a large count value) to the agent via 
+the listening socket to trigger a g_malloc() call with a large memory chunk 
+resulting in a segmentation fault.]]>
+  </description>
+
+  <impact>
+<![CDATA[A user could use this flaw to crash the QEMU guest agent process resulting in DoS.]]>
+  </impact>
+
+  <mitigation>
+<![CDATA[Disable the QEMU guest agent ]]>
+  </mitigation>
+
+  <credits>
+    <reporter>
+      <name>Fakhri Zulkifli</name>
+      <email>mohdfakhrizulkifli@gmail.com</email>
+    </reporter>
+    <patcher>
+      <name>Prasad J Pandit</name>
+      <email>pjp@fedoraproject.org</email>
+    </patcher>
+  </credits>
+
+  <lifecycle>
+    <reported>20180622</reported>
+    <published>20180622</published>
+    <fixed></fixed>
+  </lifecycle>
+
+  <reference>
+    <advisory type="CVE" id="2018-12617"/>
+  </reference>
+
+  <repository>
+    <branch>
+      <name>master</name>
+      <change state="vulnerable"></change>
+      <change state="fixed">141b197408ab398c4f474ac1a728ab316e921f2b</change>
+      <change state="merged">8beb8cc64da2868acec270e4becb9fea8f9093dc</change>
+    </branch>
+  </repository>
+
+</security-notice>

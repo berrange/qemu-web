@@ -1,0 +1,48 @@
+<security-notice xmlns="http://qemu.org/xmlns/security-notice/1.0">
+  <id>2018-008</id>
+
+  <summary>rtl8139 integer overflow accessing buffer</summary>
+
+  <description>
+<![CDATA[Qemu emulator built with the RTL8139 NIC emulation support is vulnerable to an integer overflow, which could lead to buffer overflow issue. It could occur when receiving packets over the network.]]>
+  </description>
+
+  <impact>
+<![CDATA[A user inside guest could use this flaw to crash the Qemu process resulting in DoS.]]>
+  </impact>
+
+  <mitigation>
+<![CDATA[Replace use of the RTL8139 network adapter with an alternative model]]>
+  </mitigation>
+
+  <credits>
+    <reporter>
+      <name>Daniel Shapira</name>
+      <email>daniel@twistlock.com</email>
+    </reporter>
+    <patcher>
+      <name>Jason Wang</name>
+      <email>jasonwang@redhat.com</email>
+    </patcher>
+  </credits>
+
+  <lifecycle>
+    <reported>20180521</reported>
+    <published>20180926</published>
+    <fixed></fixed>
+  </lifecycle>
+
+  <reference>
+    <advisory type="CVE" id="2018-17958"/>
+  </reference>
+
+  <repository>
+    <branch>
+      <name>master</name>
+      <change state="vulnerable"></change>
+      <change state="fixed">784b912f722bc86126b290c00de72c1bc8d34950</change>
+      <change state="merged"></change>
+    </branch>
+  </repository>
+
+</security-notice>

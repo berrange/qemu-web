@@ -1,0 +1,52 @@
+<security-notice xmlns="http://qemu.org/xmlns/security-notice/1.0">
+  <id>2018-006</id>
+
+  <summary>slirp buffer overflow assembling fragmented datastream</summary>
+
+  <description>
+<![CDATA[A heap buffer overflow issue was found in the way Slirp networking back-end
+in QEMU processes fragmented packets. It could occur while reassembling the
+fragmented datagrams of an incoming packet.]]>
+  </description>
+
+  <impact>
+<![CDATA[A privileged user/process inside guest could use this flaw to crash the QEMU
+process resulting in DoS OR potentially leverage it to execute arbitrary code
+on the host with privileges of the QEMU process.]]>
+  </impact>
+
+  <mitigation>
+<![CDATA[Replace use of the "user" network backend with an alternative choice]]>
+  </mitigation>
+
+  <credits>
+    <reporter>
+      <name>ZDI Disclosures</name>
+      <email>zdi-disclosures@trendmicro.com</email>
+    </reporter>
+    <patcher>
+      <name>Prasad J Pandit</name>
+      <email>pjp@fedoraproject.org</email>
+    </patcher>
+  </credits>
+
+  <lifecycle>
+    <reported>20180427</reported>
+    <published>20180605</published>
+    <fixed>20180608</fixed>
+  </lifecycle>
+
+  <reference>
+    <advisory type="CVE" id="2018-11806"/>
+  </reference>
+
+  <repository>
+    <branch>
+      <name>master</name>
+      <change state="vulnerable"></change>
+      <change state="fixed">864036e251f54c99d31df124aad7f34f01f5344c</change>
+      <change state="merged">bac5ba3dc5da706f52c149fa6c0bd1dc96899bec</change>
+    </branch>
+  </repository>
+
+</security-notice>

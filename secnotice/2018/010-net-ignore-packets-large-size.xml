@@ -1,0 +1,48 @@
+<security-notice xmlns="http://qemu.org/xmlns/security-notice/1.0">
+  <id>2018-010</id>
+
+  <summary>Ignore network packet sizes larger than INT_MAX</summary>
+
+  <description>
+<![CDATA[A potential integer overflow issue was found in the QEMU emulator. It could occur when a packet with large packet size is accepted and processed.]]>
+  </description>
+
+  <impact>
+<![CDATA[A user inside guest could use this flaw to crash the Qemu process resulting in DoS.]]>
+  </impact>
+
+  <mitigation>
+<![CDATA[None]]>
+  </mitigation>
+
+  <credits>
+    <reporter>
+      <name>Daniel Shapira</name>
+      <email>daniel@twistlock.com</email>
+    </reporter>
+    <patcher>
+      <name>Jason Wang</name>
+      <email>jasonwang@redhat.com</email>
+    </patcher>
+  </credits>
+
+  <lifecycle>
+    <reported>20180521</reported>
+    <published>20180926</published>
+    <fixed></fixed>
+  </lifecycle>
+
+  <reference>
+    <advisory type="CVE" id="2018-17963"/>
+  </reference>
+
+  <repository>
+    <branch>
+      <name>master</name>
+      <change state="vulnerable"></change>
+      <change state="fixed">36772a6341af7c0f100b8e55a1e779db5fe818da</change>
+      <change state="merged"></change>
+    </branch>
+  </repository>
+
+</security-notice>

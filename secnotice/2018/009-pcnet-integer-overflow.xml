@@ -1,0 +1,48 @@
+<security-notice xmlns="http://qemu.org/xmlns/security-notice/1.0">
+  <id>2018-009</id>
+
+  <summary>pcnet integer overflow accessing buffer</summary>
+
+  <description>
+<![CDATA[Qemu emulator built with the AMD PC-Net II (Am79C970A) emulation support is vulnerable to an integer overflow, which could lead to buffer overflow issue. It could occur when receiving packets over the network.]]>
+  </description>
+
+  <impact>
+<![CDATA[A user inside guest could use this flaw to crash the Qemu process resulting in DoS.]]>
+  </impact>
+
+  <mitigation>
+<![CDATA[Replace use of the AMD PC-Net II network adapter with an alternative model]]>
+  </mitigation>
+
+  <credits>
+    <reporter>
+      <name>Daniel Shapira</name>
+      <email>daniel@twistlock.com</email>
+    </reporter>
+    <patcher>
+      <name>Jason Wang</name>
+      <email>jasonwang@redhat.com</email>
+    </patcher>
+  </credits>
+
+  <lifecycle>
+    <reported>20180521</reported>
+    <published>20180926</published>
+    <fixed></fixed>
+  </lifecycle>
+
+  <reference>
+    <advisory type="CVE" id="2018-17962"/>
+  </reference>
+
+  <repository>
+    <branch>
+      <name>master</name>
+      <change state="vulnerable"></change>
+      <change state="fixed">2fc84f6b39577ccd6fd57bdd270902f5098c3a88</change>
+      <change state="merged"></change>
+    </branch>
+  </repository>
+
+</security-notice>

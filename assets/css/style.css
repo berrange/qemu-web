@@ -590,3 +590,17 @@
 	{
 		margin-top: 1.5em;
 	}
+
+	#refdoc  {
+	    border-spacing: 4px;
+	}
+	#refdoc td {
+	    background: rgb(240,240,240);
+	    padding: 6px;
+	    margin: 6px;
+	}
+	#refdoc th {
+	    background: rgb(220,220,220);
+	    padding: 6px;
+	    text-align: right;
+	}
